@@ -67,23 +67,23 @@ class KategoriApiController extends Controller
      //[invent-05] Update Salah Satu Kategori
     public function update(Request $request, string $id)
     {
-        // $kategori = Kategori::find($id);
+        $kategori = Kategori::find($id);
 
-        // $request->validate([
-        //     'deskripsi'   => 'required',
-        //     'kategori'    => 'required',
-        // ]);
+        $request->validate([
+            'deskripsi'   => 'required',
+            'kategori'    => 'required',
+        ]);
         
-        // if (!$kategori) {
-        //     return response()->json(['status' => 'Kategori tidak ditemukan'], 404);
-        // }else{
-        //     $kategori->update([
-        //         'deskripsi'=>$request->deskripsi,
-        //         'kategori'=>$request->kategori,
-        //     ]);
+        if (!$kategori) {
+            return response()->json(['status' => 'Kategori tidak ditemukan'], 404);
+        }else{
+            $kategori->update([
+                'deskripsi'=>$request->deskripsi,
+                'kategori'=>$request->kategori,
+            ]);
 
-        // return response()->json(['status' => 'Kategori berhasil diubah'], 200);          
-        // }
+        return response()->json(['status' => 'Kategori berhasil diubah'], 200);          
+        }
     }
 
     /**
