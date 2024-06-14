@@ -93,18 +93,18 @@ class KategoriApiController extends Controller
      //[invent-04] Hapus Kategori
     public function destroy(string $id)
     {
-        // $kategori = Kategori::find($id);
+        $kategori = Kategori::find($id);
 
-        // if (!$kategori) {
-        //     return response()->json(['status' => 'Kategori tidak ditemukan'], 404);
-        // }
+        if (!$kategori) {
+            return response()->json(['status' => 'Kategori tidak ditemukan'], 404);
+        }
         
-        // try {
-        //     $kategori->delete();
-        //     return response()->json(['status' => 'Kategori berhasil dihapus'], 200);
-        // } catch (\Illuminate\Database\QueryException) {
-        //     // Tangkap pengecualian spesifik dari database (termasuk constraints foreign key)
-        //     return response()->json(['status' => 'Kategori tidak dapat dihapus'], 500);
-        // }
+        try {
+            $kategori->delete();
+            return response()->json(['status' => 'Kategori berhasil dihapus'], 200);
+        } catch (\Illuminate\Database\QueryException) {
+            // Tangkap pengecualian spesifik dari database (termasuk constraints foreign key)
+            return response()->json(['status' => 'Kategori tidak dapat dihapus'], 500);
+        }
     }
 }
