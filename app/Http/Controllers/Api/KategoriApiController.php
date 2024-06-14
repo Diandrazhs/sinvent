@@ -28,18 +28,18 @@ class KategoriApiController extends Controller
      //[invent-02] Tambah Kategori Baru
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'deskripsi'   => 'required',
-        //     'kategori'    => 'required',
-        // ]);
+        $request->validate([
+            'deskripsi'   => 'required',
+            'kategori'    => 'required',
+        ]);
         
-        // $kategoribaru = Kategori::create([
-        //     'deskripsi'  => $request->deskripsi,
-        //     'kategori'   => $request->kategori,
-        // ]);
+        $kategoribaru = Kategori::create([
+            'deskripsi'  => $request->deskripsi,
+            'kategori'   => $request->kategori,
+        ]);
 
-        // $data = array("data"=>$kategoribaru);
-        // return response()->json($data);
+        $data = array("data"=>$kategoribaru);
+        return response()->json($data);
 
     }
 
