@@ -50,14 +50,14 @@ class KategoriApiController extends Controller
      //[invent-03] Detail Salah Satu Kategori
     public function show(string $id)
     {
-        // $kategori = Kategori::find($id);
+        $kategori = Kategori::find($id);
         
-        // if(!$kategori){
-        //     return response()->json(['message' => 'Kategori tidak ditemukan'], 404);
-        // }else{
-        //     $data=array("data"=>$kategori);
-        //     return response()->json($data);
-        // }
+        if(!$kategori){
+            return response()->json(['message' => 'Kategori tidak ditemukan'], 404);
+        }else{
+            $data=array("data"=>$kategori);
+            return response()->json($data);
+        }
     }
 
     /**
